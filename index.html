@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>解答チェック</title>
+</head>
+
+<body>
+	<h1>解答チェッカー</h1>
+	<p>解答を入力してね</p>
+	<p>(No.5とNo.6は半角大文字、No.7は半角数字、それ以外は全角カタカナ)</p>
+	<input type = "text" id = "answer" onkeydown="keydown_enter();">
+	<button type="button" onclick="check();" id = "submit">チェックする</button>
+	<p id = "result"></p>
+	<script>
+		var answerlist = ["ガソリン","ゾウリムシ","ウラヌス","ヲタク","NHK","ONEPIECE","96","ノー","ヨーヨー","ウシ","ニシ","ナイス","ライン","ベイカーストリート","ベイカーガイ","デンゲン","タイトル","ピンク","イギリス","スマイル","デューク","セイチョウ","イカリング","ホタテ","ウラ","ケヅクロイ","イカヅチ","ツケモノ","クラス","レンジ","アカリ","アカリンゴ","カード","ワニ","クワガタ","ノロイ","モノレール","ジメン","ヲタクニコイハムズカシイ","ナンバー","ランダム","ビーズ","カンパチ","エルサレム","タスマニアデビル","コードネーム","トウキョウグール","バスタースナイパー","バスター・スナイパー","ガンダム","コイキング","タンジョウ","エントランス"];
+		function keydown_enter() {
+			if(window.event.keyCode == 13) {
+				document.getElementById("submit").click();
+			}
+		}
+		function check(){
+			var ans = document.getElementById("answer").value;
+			flag = 0;
+			for(let i = 0; i < answerlist.length; i++){
+				if(ans == answerlist[i]){
+					flag = 1;
+					break;
+				}
+			}
+			if (flag == 1){
+				document.getElementById("result").textContent="正解です";
+			}
+			else{
+				document.getElementById("result").textContent="不正解です";
+			}
+		}
+	</script>
+</body>
+</html>
